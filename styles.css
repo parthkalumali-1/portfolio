@@ -1,4 +1,3 @@
-/* styles.css */
 body {
     background-color: #0d0d0d;
     color: #fff;
@@ -14,22 +13,21 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-}
-
-h1 {
-    font-size: 3em;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
 }
 
 nav ul li {
     display: inline;
-    margin: 0 15px;
 }
 
 nav ul li a {
@@ -38,30 +36,47 @@ nav ul li a {
     font-weight: bold;
 }
 
-.section {
-    padding: 60px 20px;
-}
-
-.card {
-    background: #1a1a1a;
-    padding: 20px;
+.animated-button {
+    position: relative;
+    background: #222;
+    color: #fff;
+    border: 2px solid #ff0080;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 20px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
-    margin: 20px auto;
-    width: 80%;
-    max-width: 400px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease;
 }
 
-.card a {
-    color: #00ffcc;
-    text-decoration: none;
-    font-weight: bold;
+.animated-button:hover {
+    color: #ff0080;
+    border-color: #00ffff;
 }
 
-#glitch-text {
-    font-size: 2.5em;
-    font-weight: bold;
-    animation: glitch 0.8s infinite alternate;
+.animated-button::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #a21caf;
+    border-radius: 50%;
+    top: 5px;
+    right: 5px;
+    filter: blur(5px);
+}
+
+.animated-button::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #ff0080;
+    border-radius: 50%;
+    top: 10px;
+    right: 10px;
+    filter: blur(10px);
 }
 
 @keyframes glitch {
