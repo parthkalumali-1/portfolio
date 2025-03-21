@@ -1,23 +1,6 @@
 // script.js
 document.addEventListener("DOMContentLoaded", function () {
-    // Hacker-style typing effect
-    let text = "Parth Kalumali";
-    let i = 0;
-    let speed = 150;
-    let element = document.getElementById("hacker-text");
-
-    function typeWriter() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        }
-    }
-
-    element.innerHTML = "";
-    typeWriter();
-
-    // Smooth scroll
+    // Smooth scrolling
     document.querySelectorAll('nav ul li a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -27,18 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Animate skills progress bars
-    let skills = document.querySelectorAll(".progress");
-    skills.forEach(skill => {
-        let width = skill.style.width;
-        skill.style.width = "0";
-        setTimeout(() => {
-            skill.style.transition = "width 1.5s ease-in-out";
-            skill.style.width = width;
-        }, 500);
-    });
-
-    // GSAP animation for fade-in effects
+    // GSAP animation for smooth fade-in
     gsap.from(".card", {
         opacity: 0,
         y: 50,
@@ -51,4 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
         y: -20,
         duration: 1
     });
+
+    // Glitch Effect
+    const glitchText = document.getElementById("glitch-text");
+    setInterval(() => {
+        glitchText.style.animation = "none";
+        setTimeout(() => glitchText.style.animation = "glitch 0.8s infinite alternate", 10);
+    }, 2000);
 });
